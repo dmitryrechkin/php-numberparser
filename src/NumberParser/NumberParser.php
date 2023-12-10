@@ -16,8 +16,8 @@ class NumberParser
 	{
 		$number = 0;
 		if (is_string($value)) {
-			if (function_exists('utf8_decode')) {
-				$value = utf8_decode($value);
+			if (function_exists('mb_convert_encoding')) {
+				$value = mb_convert_encoding($value, 'UTF-8');
 			}
 
 			$value = preg_replace('/[^\d\.]/i', '', (string)$value);
